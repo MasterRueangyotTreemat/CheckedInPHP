@@ -1,7 +1,7 @@
 <?php
-	$con = mysql_connect("localhost","root",""); // connect to database
-
-	mysql_select_db("checkedin",$con); // database name
-
-	mysql_query("SET NAMES uft8"); 
+try {
+$pdo = new PDO("mysql:host=localhost;dbname=checkedin;charset=utf8", "root", "");
+} catch (PDOException $e) {
+echo "Error occured : " . $e->getMessage();
+}
 ?>
