@@ -8,6 +8,26 @@
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 </head>
 <body>
+<!-- check login -->
+<script type="text/javascript">
+	function validation(){
+		var username = document.myform.username.value;
+		var password = document.myform.password.value;
+
+		if (username == "" && password == "") {
+     		document.getElementById('errors').innerHTML="*Please enter your username and password!!";
+     	return false;
+ 		} else if (username == "") {
+ 			document.getElementById('errors').innerHTML="*Please enter your username!!";
+     	return false;
+		} else if (password == "") {
+ 			document.getElementById('errors').innerHTML="*Please enter your password!!";
+     	return false;
+ 		}
+
+}
+</script>
+
 	<!-- Login form -->
     <div class="container">
         <div class="row">
@@ -15,16 +35,17 @@
         		<div class="col-md-6">
         			<h1 class="">CheckedIn Login</h1>
         			<!-- send data in form to checklogin.php by by post -->
-        			<form action="checklogin.php" method="post">
+        			<form name="myform" action="checklogin.php" method="post" onsubmit="return validation();">
         				<div class="form-group">
-        					<label for="email">Email</label>
-        					<input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+        					<label for="username">Username</label>
+        					<input type="username" class="form-control" name="username" id="username" placeholder="username" >
         				</div>
         				<div class="form-group">
         					<label for="password">Password</label>
-        					<input type="password" class="form-control" name="password" id="password" placeholder="password" required>
+        					<input type="password" class="form-control" name="password" id="password" placeholder="password" >
         				</div>
-        				<input type="submit" value="log in" class="btn btn-primary">
+        				<input type="submit" value="Log in" class="btn btn-primary">
+						<p id="errors"></p>
         			</form>
         		</div>
         		<div class="col-md-3"></div>

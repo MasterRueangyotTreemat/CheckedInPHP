@@ -21,8 +21,21 @@ if($_SESSION['ses_id'] == ''){
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 </head>
 <body>
-<h1>Teacher Page</h1>
-<a href="logout.php" class="btn btn-primary">Logout</a>
+	<!-- Teacher Page -->
+    <div class="container">
+        <div class="row">
+        		<div class="col-md-3"></div>
+        		<div class="col-md-6">
+
+					<h1 class="text-center">Teacher Page</h1>
+					<h3>username : <?=$_SESSION['username'];?></h3>
+					<a href="logout.php" class="btn btn-primary">Logout</a>
+
+        		</div>
+        		<div class="col-md-3"></div>
+        </div>
+    <div>
+
 </body>
 </html>
 <?php

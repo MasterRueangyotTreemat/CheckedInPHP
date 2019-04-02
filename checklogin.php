@@ -4,12 +4,12 @@
   include("connect.php"); // connect to database
 
   // variable
-  $email = $_POST['email'];
-  $password = md5($_POST['password']); //secure password with MD5
+  $username = $_POST['username'];
+  $password = $_POST['password']; //secure password with MD5
 
   // 2. กาหนดรูปแบบคาสั่ง SQL
-  $stmt = $pdo -> prepare( "SELECT * from users WHERE email = ? AND password = ?");
-  $stmt -> bindParam(1, $email);
+  $stmt = $pdo -> prepare( "SELECT * from users WHERE username = ? AND password = ?");
+  $stmt -> bindParam(1, $username);
   $stmt -> bindParam(2, $password);
   //process SQL
   $stmt->execute();
@@ -27,7 +27,7 @@
           //create session for collect data
           $_SESSION['ses_id'] = session_id();
           //email data from whiled
-          $_SESSION['email'] = $row['email'];
+          $_SESSION['username'] = $row['first_name'];
           $_SESSION['status'] = 1;// or "Teacher";
           //send to Teacher page
           echo "<meta http-equiv='refresh' content='1;URL=teacher.php'>";
@@ -36,7 +36,7 @@
           //create session for collect data
           $_SESSION['ses_id'] = session_id();
           //email data from whiled
-          $_SESSION['email'] = $row['email'];
+          $_SESSION['username'] = $row['first_name'];
           $_SESSION['status'] = 2; // or "TA"
           //send to TA page
           echo "<meta http-equiv='refresh' content='1;URL=ta.php'>";
@@ -45,27 +45,17 @@
           //create session for collect data
           $_SESSION['ses_id'] = session_id();
           //email data from whiled
-          $_SESSION['email'] = $row['email'];
+          $_SESSION['username'] = $row['first_name'];
           $_SESSION['status'] = 3; // or "Student"
           //send to Student page
           echo "<meta http-equiv='refresh' content='1;URL=student.php'>";
         } else {
-          echo "<meta http-equiv='refresh' content='1;URL=index.php'>";
+          echo "<script>alert('invalid username and password!! please try again.')</script>";
+          echo "<meta http-equiv='refresh' content='0;URL=index.php'>";
         }
 
-    if (!empty($row)) {
-      // นำข้อมูลผู้ใช้จากฐานข้อมูลเขียนลง session 2 ค่า
-      $_SESSION["fullname"] = $row["first_name"];
-      $_SESSION["username"] = $row["email"];
-
-      // แสดง link เพื่อไปยังหน้าต่อไปหลังจากตรวจสอบสำเร็จแล้ว
-      echo "เข้าสู่ระบบสำเร็จ<br>";
-      echo "<a href='ta.php'>ไปยังหน้าหลักของผู้ใช้</a>";
-
-    // กรณี username และ password ไม่ตรงกัน
-    } else {
-      echo "ไม่สำเร็จ ชื่อหรือรหัสผ่านไม่ถูกต้อง";
-      echo "<a href='index.php'>เข้าสู่ระบบอีกครัง</a>";
-    }
-
+        //check if username and password are not in database
+        // if($row['username'] != $username && $row['password'] != $password){
+        //   echo "alert('invalid username and password!! please try again.')";
+        // }
   ?>
