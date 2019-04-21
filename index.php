@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" >
+		$('.message a').click(function(){
+		$('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+		});
+	</script>
 </head>
 <body>
 <!-- check login -->
@@ -15,13 +21,13 @@
 		var password = document.myform.password.value;
 
 		if (username == "" && password == "") {
-     		document.getElementById('errors').innerHTML="*Please enter your username and password!!";
+     		alert("*Please enter your username and password!!");
      	return false;
  		} else if (username == "") {
- 			document.getElementById('errors').innerHTML="*Please enter your username!!";
+			alert("*Please enter your username!!");
      	return false;
 		} else if (password == "") {
- 			document.getElementById('errors').innerHTML="*Please enter your password!!";
+			alert("*Please enter your password!!");
      	return false;
  		}
 
@@ -29,28 +35,18 @@
 </script>
 
 	<!-- Login form -->
-    <div class="container">
-        <div class="row">
-        		<div class="col-md-3"></div>
-        		<div class="col-md-6">
-        			<h1 class="">CheckedIn Login</h1>
-        			<!-- send data in form to checklogin.php by by post -->
-        			<form name="myform" action="checklogin.php" method="post" onsubmit="return validation();">
-        				<div class="form-group">
-        					<label for="username">Username</label>
-        					<input type="username" class="form-control" name="username" id="username" placeholder="username" >
-        				</div>
-        				<div class="form-group">
-        					<label for="password">Password</label>
-        					<input type="password" class="form-control" name="password" id="password" placeholder="password" >
-        				</div>
-        				<input type="submit" value="Log in" class="btn btn-primary">
-						<p id="errors"></p>
-        			</form>
-        		</div>
-        		<div class="col-md-3"></div>
-        </div>
-    <div>
+		<div class="login-page">
+			<div class="form">
+				<h1>CheckedIn</h1>
+				<form name="myform" class="login-form" action="checklogin.php" method="post" onsubmit="return validation();">
+					<input type="text" name="username" id="username" placeholder="username" onsubmit="return showHint(this.value)"/>
+					<input type="password" name="password" id="password" placeholder="password" onsubmit="return showHint(this.value)"/>
+					<button>log in</button>
+					<!-- <p id="errors" class="message"></p> -->
+					<p><span id="txtCheck"></span></p>
+				</form>
+			</div>
+		</div>
     <script src="text/javascript" src="js/jquery-3.3.1.js"></script>
     <script src="text/javascript" src="js/bootstrap.js"></script>
 </body>
