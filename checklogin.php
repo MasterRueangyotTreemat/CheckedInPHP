@@ -84,14 +84,14 @@
 	{
 		if($objResult["FlagLock"] == "Yes")
 		{
-      echo "<script>alert('This user account is lock!')</script>";
+      echo "<script>alert('This user account is lock! please contact admin.')</script>";
       echo "<meta http-equiv='refresh' content='0;URL=index.php'>";
 			exit();
 		}
 
 		if($objResult["password"] != $_POST["password"])
 		{
-      echo "<script>alert('Password Incorrect!')</script>";
+      echo "<script>alert('invalid username or password!! please try again.')</script>";
       echo "<meta http-equiv='refresh' content='0;URL=index.php'>";
 
 			// Update Login Failed
@@ -125,7 +125,7 @@
 			$strSQL = "UPDATE users  SET LoginCount = 0 WHERE username = '".mysqli_real_escape_string($objCon,$_POST['username'])."' ";
 			$objQuery = mysqli_query($objCon,$strSQL);
 
-			header("location:user_page.php");
+			header("location:home.php");
 		}
 	}
 	mysqli_close($objCon);
