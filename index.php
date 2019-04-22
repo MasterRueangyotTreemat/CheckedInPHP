@@ -13,7 +13,7 @@
 		});
 	</script>
 </head>
-<body>
+<body style="background-image: url('img/bg.png'); background-size: cover; ">
 <!-- check login -->
 <script type="text/javascript">
 	function validation(){
@@ -36,12 +36,12 @@
 
 	<!-- Login form -->
 		<div class="login-page">
-			<div class="form">
+			<div class="form" style="border-radius: 25px;">
 				<h1>CheckedIn</h1>
-				<form name="myform" class="login-form" action="checklogin.php" method="post" onsubmit="return validation();">
-					<input type="text" name="username" id="username" placeholder="username" onsubmit="return showHint(this.value)"/>
-					<input type="password" name="password" id="password" placeholder="password" onsubmit="return showHint(this.value)"/>
-					<button>log in</button>
+				<form name="myform" class="login-form" action="checklogin.php" method="post" style="border-radius: 25px; " onsubmit="return validation();">
+					<input type="text" name="username" id="username" placeholder="username" style="border-radius: 25px; " onsubmit="return showHint(this.value)"/>
+					<input type="password" name="password" id="password" placeholder="password" style="border-radius: 25px; " onsubmit="return showHint(this.value)"/>
+					<button style="border-radius: 25px; ">log in</button>
 					<!-- <p id="errors" class="message"></p> -->
 					<p><span id="txtCheck"></span></p>
 				</form>

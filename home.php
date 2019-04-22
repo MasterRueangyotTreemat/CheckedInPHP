@@ -84,6 +84,11 @@ if($_SESSION['status'] == 3) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
+
 </head>
 <body>
 	<!-- Student Page -->
@@ -100,6 +105,8 @@ if($_SESSION['status'] == 3) {
         		<div class="col-md-3"></div>
         </div>
     <div>
+
+
 </body>
 </html>
 <?php

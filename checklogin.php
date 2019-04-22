@@ -64,10 +64,10 @@
 
 	$LimitTime = 3;
 
-	$serverName = "localhost";
-	$userName = "root";
-	$userPassword = "";
-	$dbName = "checkedin";
+	$serverName = "10.199.66.227";
+	$userName = "19S2_g6";
+	$userPassword = "QB38syCa";
+	$dbName = "19S2_g6";
 
 	$objCon = mysqli_connect($serverName,$userName,$userPassword,$dbName);
 
@@ -76,7 +76,9 @@
 	$objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 	if(!$objResult)
 	{
-      echo "<script>alert('Not Found User!')</script>";
+      
+	  echo "<script>alert('invalid username or password!! please try again.')</script>";
+	  //echo "<script>alert('Not Found User!')</script>";
       echo "<meta http-equiv='refresh' content='0;URL=index.php'>";
 			exit();
 	}
